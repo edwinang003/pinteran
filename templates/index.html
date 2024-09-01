@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heckathon - Interactive Chat</title>
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" type="text/css">
+</head>
+<body class="body">
+    <div class="main-container">
+        <div class="header-container">
+            <div class="header-wrapper">
+                <a href="#" class="w-inline-block">
+                    <img src="https://cdn.prod.website-files.com/66c82c1989379c3c6bec8b31/66cd802fdc52b453defc064b_cross-svgrepo-com.svg" loading="lazy" alt="Close" class="image"/>
+                </a>
+                <div class="text-wrapper">
+                    <div class="text-block">Skenario</div>
+                    <h2 class="heading">Interview Kerja</h2>
+                </div>
+            </div>
+        </div>
+        <div class="chat-container" id="chat-container">
+            <!-- Chat messages will be dynamically inserted here -->
+        </div>
+        <div class="chat-message-section">
+            <div class="div-block-2">
+                <input class="text-field" id="user_input" type="text" placeholder="Type your message here..." />
+                <a href="#" class="send-button w-inline-block" id="send-button">
+                    <img src="https://cdn.prod.website-files.com/66c82c1989379c3c6bec8b31/66ceaf0690105c090a4cf342_send-message-p-500.png" loading="lazy" width="25" height="25" alt="Send" />
+                </a>
+                <a href="#" class="mic-button w-inline-block" id="mic-button">
+                    <img src="https://cdn.prod.website-files.com/66c82c1989379c3c6bec8b31/66c84291ec3e40bd58991693_mic-svgrepo-com.png" loading="lazy" width="25" height="25" alt="Mic" />
+                </a>
+            </div>
+        </div>
+        <div class="new-session">
+            <a href="#" id="new-session-button" class="w-button">Start New Session</a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

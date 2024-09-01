@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Summary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Chat Summary</h1>
+    <div class="summary-content">
+        <p>{{ summary }}</p>
+    </div>
+    <div class="level-up-message">
+        <p>Congratulations! You've completed Level {{ next_level - 1 }} and advanced to Level {{ next_level }}!</p>
+        <a href="{{ url_for('chooselevel') }}" class="btn">Continue</a>
+    </div>
+</body>
+</html>

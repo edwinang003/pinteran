@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 1 - Learn English</title>
+    <link href="{{ url_for('static', filename='level1.css') }}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">Pinteran</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('dashboard') }}">Home</a></li>
+                    <li><a href="{{ url_for('personalize_teacher') }}">Profile</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <input type="hidden" id="current-level" value="3">
+
+    <main class="vertical-layout">
+        <div class="video-container">
+            <iframe id="lesson-video" 
+                    src="https://www.youtube.com/embed/4V0wKH6hd30" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="chat-container" id="chat-container">
+            {% for message in conversation_history %}
+            <div class="message-container {{ message.role }}">
+                <div class="message-text">{{ message.content }}</div>
+                {% if message.role == 'assistant' %}
+                <img src="https://cdn.prod.website-files.com/66c82c1989379c3c6bec8b31/66ceafe488e2211d3fb0ff7e_volume-loud-svgrepo-com.png" 
+                     alt="Play" 
+                     class="tts-icon" 
+                     onclick="speakText('{{ message.content }}')">
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="chat-message-section">
+            <div class="div-block-2">
+                <input class="text-field" id="user_input" type="text" placeholder="Type your message here..." />
+                <a href="#" class="send-button w-inline-block" id="send-button">
+                    <img src="https://cdn.prod.website-files.com/66c82c1989379c3c6bec8b31/66ceaf0690105c090a4cf342_send-message-p-500.png" width="25" height="25" alt="Send" />
+                </a>
+                <a href="#" class="mic-button w-inline-block" id="mic-button">
+                    <img src="https://cdn.prod.website-files.com/66c82c1989379c3c6bec8b31/66c84291ec3e40bd58991693_mic-svgrepo-com.png " width="25" height="25" alt="Mic" />
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='level1.js') }}"></script>
+</body>
+</html>

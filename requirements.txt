@@ -1,0 +1,6 @@
+requests
+python-dotenv
+langdetect
+flask
+supabase
+gotrue
